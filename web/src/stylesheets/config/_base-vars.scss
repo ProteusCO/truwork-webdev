@@ -1,0 +1,61 @@
+$color-white: #fff;
+$color-grey-f9: #f9f9f9;
+$color-grey-f2: #f2f2f2;
+$color-grey-e7: #e7e7e7;
+$color-grey-d0: #d0d0d0;
+$color-grey-c5: #c5c5c5;
+$color-grey-cc: #ccc;
+$color-grey-bb: #bbb;
+$color-grey-aa: #aaa;
+$color-grey-99: #999;
+$color-grey-77: #777;
+$color-grey-55: #555;
+$color-grey-33: #333;
+$color-grey-1b: #1b1b1b;
+$color-black: #000;
+
+$color-youtube-black: $color-grey-1b;
+$color-facebook-blue: #3b579d;
+
+
+$color-tan: #e7e1dc;
+$color-grey-tan: #ac9b8f;
+$color-dark-tan: #baa188;
+$color-gold-tan: #c69c6d;
+$color-brown: #603913;
+
+$color-red: #bf301a;
+$color-dark-red: #7a0000;
+$color-yellow: #ddb307;
+$color-blue: #3d8c89;
+$color-dark-blue: #003a62;
+$color-green: #b8c243;
+$color-dark-green: #769853;
+
+$color-main: #003a62;
+$color-main-accent: #3d8c89;
+$color-neutral: #626164;
+$color-neutral-accent: $color-black;
+
+$font-arial: Arial, Verdana, sans-serif;
+$font-monospace: monospace;
+
+$font-default-color: $color-neutral;
+$font-default-size: 18px;
+$font-small: 16px;
+$font-default-content-line-height: 1.7;
+$font-raleway: 'Raleway', $font-arial;
+$font-margin-default: 18px;
+
+$html-entity-nbsp: "\a0";
+
+$bp-mobile-landscape: (min-width 480px);
+$bp-tablets-portrait: (min-width 768px);
+$bp-tablets-landscape: (min-width 1024px);
+$bp-desktop: (min-width 1280px);
+$bp-desktop-wide: (min-width: 1400px);
+
+$constraint-max-width: 980px;
+
+$spacing-mobile-horizontal: 20px;
+$spacing-between-boxes: 20px;

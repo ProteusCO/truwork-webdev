@@ -1,0 +1,127 @@
+@import "../config/base-import";
+
+/* listings */
+.blog-posts {
+  margin: 10px 0;
+  .post {
+    padding: 0 0 20px 0;
+  }
+  .title {
+    h4 {
+      color: $color-main;
+      margin: 15px 0 10px;
+      font-weight: 200;
+    }
+  }
+  .feature-image {
+    display: block;
+    height: 225px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: $color-main;
+    background-size: cover;
+  }
+
+  .readmore {
+    margin: 10px 0;
+    a {
+      @include action-button($color-main, transparent, $color-main);
+      font-size: $font-small;
+      line-height: $font-default-content-line-height;
+      padding: 5px 15px;
+      min-width: 150px;
+    }
+  }
+  @include breakpoint($bp-mobile-landscape){
+    margin: 20px 0;
+    .feature-image,
+    .meta {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .feature-image {
+      width: 45%;
+    }
+    .meta {
+      width: 55%;
+      padding-left: 20px;
+    }
+  }
+  @include breakpoint($bp-desktop){
+    .feature-image {
+      width: 35%;
+    }
+    .meta {
+      width: 65%;
+    }
+  }
+}
+
+/* blog view */
+
+.blog-post {
+  .feature-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .post .content {
+    blockquote {
+      @include style-h3;
+      @include font-emphasis;
+      font-weight: 200;
+      margin: 10px 0;
+      padding: 0 20px;
+      border-top: 1px solid $color-grey-f2;
+      border-bottom: 1px solid $color-grey-f2;
+    }
+  }
+  .share-label,
+  .addthis_toolbox {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .share-label {
+    font-size: $font-small;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+  }
+  .addthis {
+    &_24x24_style {
+      .at4-icon {
+        border-radius: 100%;
+        opacity: 0.7;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    &_default_style {
+      .addthis_counter {
+        display: none!important;
+      }
+    }
+  }
+  .viewblog {
+    a {
+      @include action-button($color-main, transparent, $color-main);
+      line-height: $font-default-content-line-height;
+    }
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    .post .content {
+      blockquote {
+        padding: 0 40px;
+      }
+    }
+  }
+}

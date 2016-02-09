@@ -1,0 +1,97 @@
+@import "../config/base-import";
+
+.form_entry {
+  margin-top: $font-margin-default;
+
+  .question {
+    width: 100%;
+
+    .form_field {
+      margin-bottom: 20px;
+    }
+    .label {
+      display: none;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid $color-neutral-accent;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $color-neutral-accent;
+      font-style: italic;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: $color-neutral-accent;
+      font-style: italic;
+    }
+    :-ms-input-placeholder {
+      color: $color-neutral-accent;
+      font-style: italic;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: $color-neutral-accent;
+      font-style: italic;
+    }
+
+    .validation_error {
+      input[type="text"],
+      textarea,
+      select {
+        box-shadow: 0 0 2px $color-red;
+      }
+    }
+
+    .phone_field {
+      .example-con {
+        @include font-emphasis;
+        font-weight: 300;
+      }
+      table {
+        .phone_number_nanp,
+        .phone_number_form {
+          width: 100%;
+        }
+      }
+    }
+    .rtb {
+      + .rtb {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  button.submit_button {
+    @include action-button($color-main, $color-main, $color-white);
+    display: inline-block;
+    margin: 0 auto 18px;
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    max-width: 700px;
+  }
+}
+
+.l-aside {
+  .aside-bucket {
+    button.submit_button {
+      @include action-button($color-main, $color-main, $color-white);
+      padding: 5px 15px;
+      min-width: 150px;
+      font-size: $font-small;
+      line-height: $font-default-content-line-height;
+    }
+  }
+}
+
+.message-container {
+  .error {
+    color: $color-red;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+}

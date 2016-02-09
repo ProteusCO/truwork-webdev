@@ -1,0 +1,97 @@
+@mixin font-strong {
+  font-family: $font-raleway;
+  font-weight: 800;
+}
+
+@mixin font-emphasis {
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-style: italic;
+}
+
+@mixin style-h1 {
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-size: 48px;
+  margin-bottom: 0;
+  @include breakpoint($bp-mobile-landscape) {
+    font-size: 54px;
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    font-size: 68px;
+  }
+}
+
+@mixin style-h2 {
+  font-family: $font-raleway;
+  font-weight: 300;
+  font-size: 40px;
+  margin-bottom: 0;
+  @include breakpoint($bp-mobile-landscape) {
+    font-size: 44px;
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    font-size: 48px;
+  }
+}
+
+@mixin style-h3 {
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 0;
+  @include breakpoint($bp-mobile-landscape) {
+    font-size: 33px;
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    font-size: 36px;
+  }
+}
+
+@mixin style-h4 {
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 0;
+  @include breakpoint($bp-mobile-landscape) {
+    font-size: 22px;
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    font-size: 24px;
+  }
+}
+
+@mixin action-button($border: $color-main, $bg: transparent, $color: $color-main){
+  border: 2px solid $border;
+  background-color: $bg;
+  color: $color;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 30px;
+  padding: 8px 20px;
+  display: inline-block;
+  min-width: 175px;
+  cursor: pointer;
+  font-weight: 600;
+  &:hover {
+    box-shadow: 0 0 4px transparentize($color, 0.3);
+  }
+}
+
+@mixin background-gradient {
+  background: $color-main; /* Old browsers */
+  background: -moz-linear-gradient(left,  $color-main 0%, $color-main-accent 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$color-main), color-stop(100%,$color-main-accent)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  $color-main 0%, $color-main-accent 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  $color-main 0%, $color-main-accent 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  $color-main 0%, $color-main-accent 100%); /* IE10+ */
+  background: linear-gradient(left,  $color-main 0%, $color-main-accent 100%); /* W3C */
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

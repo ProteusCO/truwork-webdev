@@ -1,0 +1,526 @@
+@import "../config/base-import";
+@import "../libs/normalize";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+em {
+  @include font-emphasis;
+}
+
+strong {
+  @include font-strong;
+}
+
+h1 {
+  @include style-h1
+}
+
+h2 {
+  @include style-h2;
+}
+
+h3 {
+  @include style-h3;
+}
+
+h4 {
+  @include style-h4;
+}
+
+.content {
+  h1, h2, h3, h4 {
+    margin-bottom: 0;
+  }
+  p,
+  ul {
+    line-height: $font-default-content-line-height;
+  }
+}
+
+a {
+  color: $color-main;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover {
+    @include font-strong;
+  }
+  &.button {
+    @include action-button($color-main, $color-main, $color-white);
+  }
+}
+
+.l-header,
+.l-body,
+.l-footer {
+  font-family: $font-raleway;
+  font-size: $font-default-size;
+  font-weight: 300;
+  color: $color-neutral;
+  h1, h2, h3, h4 {
+    margin-top: $font-margin-default;
+  }
+  p, ul, ol {
+    line-height: $font-default-content-line-height;
+  }
+}
+
+/* set max width for content areas */
+.box-wc {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1px 10px;
+  transition: .2s all ease;
+}
+
+/* header styles */
+.l-header {
+  height: 150px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: 0.2s ease all;
+  background-color: transparentize($color-white, 0.2);
+  box-shadow: 0 3px 5px transparentize($color-neutral, 0.7);
+  .box-wc {
+    position: relative;
+    padding: 0 10px;
+  }
+  .logo {
+    display: inline-block;
+    float: left;
+    max-width: 150px;
+    img {
+      transition: 0.2s ease all;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .mobile-nav {
+    float: right;
+    margin-top: 60px;
+    width: 40px;
+    -webkit-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+    .line {
+      height: 4px;
+      width: 100%;
+      margin-bottom: 6px;
+      background: $color-dark-blue;
+    }
+  }
+  &.small {
+    .mobile-nav {
+      margin-top: 23px;
+    }
+  }
+  .main-nav {
+    display: block;
+    position: absolute;
+    top: 150px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s ease all;
+    &.open {
+      max-height: 2000px;
+      background-color: transparentize($color-white, 0.2);
+      box-shadow: 0 3px 5px transparentize($color-neutral, 0.7);
+    }
+  }
+
+  .main-nav,
+  .login-nav {
+    .menu{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      .mi {
+        .menuitemlabel{
+          font-weight: 600;
+          color: $color-main;
+          text-transform: uppercase;
+          display: block;
+          padding: 10px;
+          transition: 0.2s ease all;
+          &:hover {
+            font-weight: 600;
+          }
+        }
+        &-active {
+          .menuitemlabel{
+            color: $color-main;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+  .login-nav {
+    display: inline-block;
+    float: right;
+    margin-top: 22px;
+    margin-right: 10px;
+    .menu .mi.login .menuitemlabel {
+      background-color: $color-main;
+      color: $color-white;
+      border-radius: 30px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+  &.small {
+    height: 60px;
+    background-color: transparentize($color-white, 0.2);
+    box-shadow: 0 3px 5px transparentize($color-neutral, 0.7);
+    font-size: $font-small;
+    .logo {
+      padding: 2px 0 0;
+      img {
+        max-height: 60px;
+        width: auto;
+      }
+    }
+    .login-nav {
+      margin-top: 10px;
+    }
+    .main-nav {
+      top: 60px;
+    }
+    .main-nav,
+    .login-nav {
+      .menu .mi .menuitemlabel {
+        -webkit-transition: 0.2s ease all;
+        transition: 0.2s ease all;
+      }
+    }
+  }
+}
+
+@include breakpoint($bp-tablets-landscape) {
+  .l-header {
+    .box-wc {
+      margin: 0 auto;
+      padding: 0;
+      text-align: right;
+      -webkit-transition: 0.2s ease all;
+      transition: 0.2s ease all;
+    }
+    .logo {
+      max-width: none;
+    }
+    .mobile-nav {
+      display: none;
+    }
+    .main-nav {
+      display: inline-block;
+      background-color: transparent;
+      box-shadow: none;
+      max-width: 90%;
+      -webkit-transition: .2s ease all;
+      transition: .2s ease all;
+      max-height: none;
+      text-align: right;
+      top: auto;
+      left: auto;
+      /* right: 95px;
+      commented out for now because there is currently no login */
+      right: 0;
+      overflow: visible;
+    }
+    .login-nav {
+      display: inline-block;
+      background-color: transparent;
+      box-shadow: none;
+      max-width: 80%;
+      -webkit-transition: .2s ease all;
+      transition: .2s ease all;
+      margin-top: 0;
+      margin-right: 0;
+    }
+    .main-nav,
+    .login-nav {
+      .menu {
+        .mi {
+          display: inline-block;
+          position: relative;
+          text-align: center;
+          padding: 35px 0;
+          .menuitemlabel {
+            padding: 10px 7px;
+          }
+          + .mi {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+    .main-nav {
+      .menu-t2 {
+        display: none;
+      }
+      .menu {
+        .mi{
+          &-parent {
+            &.over {
+              .menu-t2{
+                display: block;
+                transition: .2s ease all;
+                padding-bottom: 15px;
+                box-shadow: 0 3px 5px transparentize($color-neutral, 0.3);
+                position: absolute;
+                top: 120px;
+                left: -15px;
+                .mi {
+                  padding: 10px 0;
+                  + .mi {
+                    margin-left: 0;
+                  }
+                  .menuitemlabel {
+                    padding: 5px 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.small {
+      .main-nav,
+      .login-nav {
+        top: auto;
+        .mi {
+          padding-top: 10px;
+        }
+      }
+      .login-nav {
+        margin-top: 0;
+      }
+      .main-nav {
+        .mi-parent.over .menu-t2 {
+          top: 60px;
+        }
+      }
+    }
+  }
+}
+
+/* body styles for interior pages*/
+.l-body {
+  padding-top: 150px;
+}
+
+.l-subintro {
+  @include background-gradient;
+  color: $color-white;
+  padding: 20px 0;
+  h1 {
+    @include style-h2;
+    margin-top: 0;
+  }
+}
+.l-main,
+.l-aside{
+  margin: 20px 0;
+  @include breakpoint($bp-tablets-landscape) {
+    padding: 20px 0;
+    min-height: 300px;
+    transition: 0.4s ease all;
+  }
+  h2 {
+    color: $color-main;
+  }
+  h3, h4 {
+    color: $color-neutral-accent;
+  }
+}
+
+/* two-column */
+.l-2column {
+  .l-aside {
+    border-top: 4px solid $color-main;
+
+    h4 {
+      font-weight: 200;
+      color: $color-neutral-accent;
+    }
+
+    .aside-bucket {
+      border-top: 1px solid $color-grey-f2;
+      margin-bottom: 20px;
+      &:first-child {
+        border-top: none;
+      }
+      a.action {
+        @include action-button($color-main, $color-main, $color-white);
+        padding: 5px 15px;
+        min-width: 150px;
+        font-size: $font-small;
+      }
+      .blog-posts {
+        .post {
+          padding: 20px 0 0 0;
+        }
+        .title {
+          font-weight: 600;
+          color: $color-main;
+        }
+        .date {
+          @include font-emphasis;
+        }
+      }
+      .whitepaper {
+        .whitepaper {
+          padding: 20px 0 0 0;
+        }
+        .title {
+          font-weight: 600;
+          color: $color-main;
+        }
+        .info {
+          @include font-emphasis;
+        }
+      }
+      .subscribe-thank-you {
+        display: none;
+      }
+    }
+  }
+  @include breakpoint($bp-tablets-landscape){
+    .l-main,
+    .l-aside {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .l-main {
+      width: 75%;
+      padding-right: 40px;
+      border-right: 1px solid $color-grey-f2;
+    }
+    .l-aside {
+      width: 25%;
+      border-top: 0;
+      padding-left: 41px;
+      border-left: 1px solid $color-grey-f2;
+      margin-left: -1px;
+    }
+  }
+}
+
+
+/* shared CTA section */
+.l-cta {
+  @include background-gradient;
+  color: $color-white;
+  .cta-text {
+    font-size: 20px;
+  }
+
+  .cta-text,
+  .action {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .action {
+    a {
+      @include action-button($color-white, $color-white, $color-main-accent);
+      font-weight: 600;
+    }
+  }
+  @include breakpoint($bp-tablets-landscape) {
+    .cta-text,
+    .action {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .cta-text {
+      font-size: 24px;
+      text-align: left;
+      width: 60%;
+    }
+
+    .action {
+      width: 40%;
+    }
+  }
+}
+
+/* footer */
+.l-footer {
+  padding: 20px 0;
+  font-size: 16px;
+
+  .footer-nav {
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    > .mi {
+      > .menuitemlabel {
+        text-decoration: none;
+        font-size: 16px;
+        display: inline-block;
+        padding: 7px 0;
+      }
+    }
+  }
+  a {
+    color: $color-neutral;
+    &:hover {
+      color: $color-main;
+    }
+  }
+  .footer-bucket {
+    width: 90%;
+    padding: 0 0 30px 0;
+    display: block;
+    margin: 0 auto 30px;
+    text-align: center;
+    border-bottom: 2px solid #f1f1f1;
+  }
+  .title {
+    font-weight: 600;
+    color: $color-main;
+  }
+  .action {
+    a {
+      @include action-button($color-main, transparent, $color-main);
+      margin: 0 auto;
+      padding: 5px 15px;
+      min-width: 150px;
+      font-size: $font-small;
+    }
+  }
+  @media (min-width: 768px) {
+    .footer-nav .menu > .mi > .menuitemlabel {
+      padding: 2px 0;
+    }
+    .footer-bucket {
+      text-align: left;
+      display: inline-block;
+      vertical-align: top;
+      width: 30%;
+      padding-bottom: 0;
+      padding-right: 40px;
+      border-bottom: 0;
+      &:last-child {
+        padding-right: none;
+      }
+      &:first-child,
+      &:last-child {
+        width: 20%;
+      }
+    }
+  }
+}

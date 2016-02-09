@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="TruWork" showNewOnSourceInSync="false">
+    <serverData>
+      <paths name="TruWork">
+        <serverdata>
+          <mappings>
+            <mapping deploy="www.workxo.com\Web\Design" local="$PROJECT_DIR$/web/build/design" web="/" />
+            <mapping deploy="www.workxo.com\Web\Stylesheets" local="$PROJECT_DIR$/web/build/stylesheets" web="/" />
+            <mapping deploy="www.workxo.com\Web\Javascript" local="$PROJECT_DIR$/web/build/javascript" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
